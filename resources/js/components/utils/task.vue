@@ -1,9 +1,9 @@
 <template>
     <a class="panel-block" >
-   
-  <input @click="toggle_complete()" :checked="task.completed" type="checkbox">
+  
+  <input @click="toggle_complete()" v-model="task.completed" type="checkbox">
 
-    <span @click="editing = true" v-if="!editing" :class="{'strike-it':task.completed}">{{task.task}}</span>
+    <span @click="editing = true" v-if="!editing" >{{task.task}}</span>
     <input 
     v-if="editing" 
     v-on:keyup.escape="editing=false" 
@@ -23,7 +23,7 @@ export default {
     data: function(){
       return {
         editing: false,
-        completed: false
+        // completed: false
       }
     },
     methods:{
@@ -32,15 +32,20 @@ export default {
         this.$store.dispatch('tasks/UPDATE_TASK', this.task)
       },
       'toggle_complete': function(){
-        this.editing = false
-        let task = {id:this.task.id, task:this.task.task, completed: (this.task.completed) ? 0 : 1}
-        this.$store.dispatch('tasks/UPDATE_TASK', task)
+        // this.editing = false
+
+        let task = {id:this.task.id, task:this.task.task, completed: this.task.completed}
+        // console.log(task)
+         this.$store.dispatch('tasks/UPDATE_TASK', task)
       },
       'destroy': function(){
         this.editing = false
-        this.$store.dispatch('tasks/DELETE_TASK', [id => this.task.id])
+        this.$store.dispatch('tasks/DELETE_TASK', this.task)
       }
     },
+    computed:{
+      
+    }
 }
 </script>
 <style scoped>

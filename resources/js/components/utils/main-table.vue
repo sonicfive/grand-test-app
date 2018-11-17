@@ -3,27 +3,13 @@
   <p class="panel-heading">
     Tasks
   </p>
-  <div class="panel-block">
-    <p class="control has-icons-left">
-      <input class="input is-small" type="text" placeholder="search">
-      <span class="icon is-small is-left">
-        <i class="fas fa-search" aria-hidden="true"></i>
-      </span>
-    </p>
-  </div>
+
 
 
   <entry></entry>
   
   <task v-for="item in all_tasks" :task="item"  v-bind:key="item.id"></task>
 
-
-
-  <div class="panel-block">
-    <button class="button is-link is-outlined is-fullwidth">
-      reset all filters
-    </button>
-  </div>
 </nav>
 </template>
 <script>

@@ -49,7 +49,7 @@ class ExampleTest extends TestCase
 
     public function testDeleteTask(){
 
-        $response = $this->json('DELETE', '/tasks/delete', ['id' => 20 ]);
+        $response = $this->json('POST', '/tasks/delete', ['id' => 20 ]);
 
         $this->assertDatabaseMissing('tasks', 
         [

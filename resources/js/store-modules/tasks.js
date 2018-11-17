@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const state = {
   tasks : []
 }
@@ -47,17 +46,15 @@ const actions = {
         }
     )
   },
-  DELETE_TASK: async (content, payload) => {
+  DELETE_TASK: async (context, payload) => {
     let _this = this
-    console.log(payload)
-    // await axios.delete("/tasks/delete", payload)
-    // .then(
-    //     data => {
-    //         console.log(payload)
-    //     //  context.dispatch('toast/OPEN',{message: "Deleted task successfuly"},{root:true})
-    //     //  context.dispatch('GET_TASKS')
-    //     }
-    // )
+    await axios.post("/tasks/delete", payload)
+    .then(
+        data => {
+         context.dispatch('toast/OPEN',{message: "Deleted task successfuly"},{root:true})
+         context.dispatch('GET_TASKS')
+        }
+    )
   }
 }
 

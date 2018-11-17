@@ -1,14 +1,13 @@
 <template>
 <div class="panel-block">
     <div class="field has-addons has-addons-right">
- 
   <p class="control is-expanded">
     <input 
     v-on:keyup.enter="add_task"
     class="input" 
     v-model="task" 
     type="text" 
-    placeholder="Start Typing"
+    placeholder="Enter a new task"
     >
   </p>
   <p class="control">

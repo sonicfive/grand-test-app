@@ -24,10 +24,12 @@ class LogRequests
 
     public function terminate($request, $response)
     {
-        $http_req = new HttpRequest;
-        $http_req->http_status_code = $response->status();
-        $http_req->requested_method = $request->method();
-        $http_req->route = $request->path();
-        $http_req->save();
+        if($request->path() != 'weather-report/get'){
+            $http_req = new HttpRequest;
+            $http_req->http_status_code = $response->status();
+            $http_req->requested_method = $request->method();
+            $http_req->route = $request->path();
+            $http_req->save();
+        }
     }
 }
