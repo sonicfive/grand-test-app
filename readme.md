@@ -1,12 +1,17 @@
 # Grand Test - Alejandro Orrantia
 
 You can find a working version of this App here: [app](http://alexorrantia.com/)
-### Testing
-- Testing can be run by running "phpunit" on the console.
-- There is one test that does not pass when using an SQLite database :( It works on MySql, still trying to figure that one out. 
 
 ### Seeding Database
 You can run seed records by typing on the console "php artisan migrate:refresh --seed"
+
+
+### Installing
+This app requires a few dependencies like Guzzle to run. You can install them running "composer install"
+
+### Testing
+- Testing can be run by running "phpunit" on the console.
+- There is one test that does not pass when using an SQLite database :( It works on MySql, still trying to figure that one out. 
 
 ### Part One - Local API
 You can click on individual tasks (in text) to edit them. Press enter to save. 
